@@ -1,3 +1,5 @@
+import { data } from "msw/lib/types/context"
+
 const Header = (title, date, temp) => {
   // TASK 1
   // ---------------------
@@ -11,6 +13,21 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  const myheader = document.createElement('div')
+  myheader.classList.add('header')
+  const mydate = document.createElement('span')
+  mydate.classList.add('data')
+  const mytitle = document.createElement('h1')
+  const mytemp = document.createElement('span')
+  mytemp.classList.add('temp')
+  myheader.appendChild(mydate)
+  myheader.appendChild(mytitle)
+  myheader.appendChild(mytemp)
+  mydate.textContent(date)
+  mytemp.textContent(temp)
+  mytitle.textContent(title)
+
+  return myheader
 }
 
 const headerAppender = (selector) => {
