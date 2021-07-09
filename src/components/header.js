@@ -1,4 +1,4 @@
-import { data } from "msw/lib/types/context"
+// import { data } from "msw/lib/types/context"
 
 const Header = (title, date, temp) => {
   // TASK 1
@@ -16,16 +16,16 @@ const Header = (title, date, temp) => {
   const myheader = document.createElement('div')
   myheader.classList.add('header')
   const mydate = document.createElement('span')
-  mydate.classList.add('data')
+  mydate.classList.add('date')
   const mytitle = document.createElement('h1')
   const mytemp = document.createElement('span')
   mytemp.classList.add('temp')
   myheader.appendChild(mydate)
   myheader.appendChild(mytitle)
   myheader.appendChild(mytemp)
-  mydate.textContent(date)
-  mytemp.textContent(temp)
-  mytitle.textContent(title)
+  mydate.textContent = date 
+  mytemp.textContent = temp + '°'
+  mytitle.textContent = title
 
   return myheader
 }
@@ -37,6 +37,10 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+  const element = Header('Test Title', 'January 6, 2021', 20)
+  const myselector = document.querySelector(selector)
+  myselector.appendChild(element)
+
 }
 
 export { Header, headerAppender }
