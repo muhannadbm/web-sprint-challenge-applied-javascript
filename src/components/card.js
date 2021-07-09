@@ -37,6 +37,9 @@ const Card = (article) => {
   author.appendChild(imgcont)
   imgcont.appendChild(myimg)
   author.appendChild(myspan)
+  card.addEventListener('click', function(){
+    console.log(headline.textContent)
+  })
 
   return card
 
